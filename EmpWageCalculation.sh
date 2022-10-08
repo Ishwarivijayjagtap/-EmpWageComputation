@@ -1,17 +1,30 @@
  echo "welcome to employe wage camputation program"
-isPartTime=1;
-isFullTime=2;
 perHourSalary=20;
-randomcheck=$((RANDOM%3));
-case $randomcheck in
-     $isFullTime)
-  empHrs=8
-     ;;
-   $isPartTime)
-   empHrs=4
-       ;;
-    *)
- empHrs=0;;
-esac
- salary=$(($empHrs*$perHourSalary))
- echo "salary=$salary"
+workingHour=0;
+totalSalary=0;
+
+for ((day=1; day<=20 ;day++))
+do
+	isPresent=$((RANDOM%3));
+	case $isPresent in
+		0)
+		#echo "Employee is absent";
+		workingHour=0;
+		;;
+
+		1)
+		#echo "Employee is present";
+		workingHour=8;
+		;;
+
+		2)
+		#echo "Employee is working as part time";
+		workingHour=4;
+		;;
+	esac
+	salary=$(($perHourSalary * $workingHour));
+	totalSalary=$(($totalSalary + $salary));
+done
+
+echo "Employee has earned $totalSalary $ in a month";
+
