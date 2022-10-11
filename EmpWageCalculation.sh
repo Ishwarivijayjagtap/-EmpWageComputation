@@ -36,4 +36,4 @@ done
 echo "Employee has earned $totalSalary $ in a month (Total working Hour : $totalWorkingHour)";
 echo "Daily wage:"${salary[@]}
 echo "Total wage :"${totalSalary[@]}
-
+echo "Day :"${day[@]}
